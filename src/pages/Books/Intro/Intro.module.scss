@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  .logo {
+    width: 400px;
+    min-width: 400px;
+    .img {
+      width: 100%;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+
+  .info {
+    width: 100%;
+    .name {
+      font-weight: 600;
+      font-size: 30px;
+      color: var(--black);
+      &::selection {
+        background-color: var(--gray);
+        color: var(--white);
+      }
+    }
+    .author,
+    .category,
+    .view {
+      font-size: 20px;
+      color: var(--black);
+      margin-top: 2px;
+      &::selection {
+        background-color: var(--gray);
+        color: var(--white);
+      }
+    }
+    .read {
+      margin-top: 10px;
+      border-radius: 10px;
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--black);
+      background-color: var(--orange);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+      &:hover {
+        color: var(--white);
+        background-color: var(--black);
+      }
+    }
+    h1 {
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .intro {
+      &::-webkit-scrollbar {
+        width: 10px;
+        background-color: var(--white);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--orange);
+        border-radius: 10px;
+      }
+      p {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      max-height: 200px;
+      overflow: auto;
+    }
+  }
+}

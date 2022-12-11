@@ -3,6 +3,8 @@
   padding: 0;
   top: 0;
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 :root {
@@ -10,9 +12,20 @@
   --orange: #f95959;
   --gray: #455d7a;
   --black: #233142;
-  --padding-content:40px;
+  --padding-content: 40px;
 }
-a{
+a {
   text-decoration: none;
   color: var(--black);
+}
+
+body {
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--white);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    border-radius: 10px;
+  }
 }
