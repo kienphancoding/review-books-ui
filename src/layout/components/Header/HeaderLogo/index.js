@@ -1,9 +1,10 @@
 import { memo } from "react";
 import clsx from "clsx";
 import style from "./HeaderLogo.module.scss";
+import { Link } from "react-router-dom";
 
 const HeaderLogo = () => {
-  return <div className={clsx(style.wrapper)}>ReviewBooks</div>;
+  return <Link to="/" className={clsx(style.wrapper)}>ReviewBooks</Link>;
 };
 
 export default memo(HeaderLogo);

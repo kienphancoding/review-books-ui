@@ -1,10 +1,11 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px var(--padding-content);
   align-items: center;
   border-bottom: 2px solid var(--black);
   background-color: var(--white);
   position: fixed;
   width: 100%;
+  z-index: 1000;
 }
