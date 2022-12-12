@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import style from "./Intro.module.scss";
 
-const Intro = () => {
+const Intro = ({handleScroll}) => {
   return (
     <div className={clsx(style.header)}>
       <div className={clsx(style.logo)}>
@@ -27,7 +27,7 @@ const Intro = () => {
             fkas fas fsdf asdkfaskfaskf s fkasfhsakdf
           </p>
         </div>
-        <div className={clsx(style.read)}>Read Now</div>
+        <div className={clsx(style.read)} onClick={handleScroll}>Read Now</div>
       </div>
     </div>
   );
