@@ -4,11 +4,11 @@ import style from "./Categories.module.scss";
 
 const Categories = () => {
   const categories = [
+    "Tất cả",
     "Trinh thám",
     "Kinh dị",
     "Tâm lí học",
-    "Phát triển bản thân",
-    "Khác",
+    "Tài chính",
   ];
 
   const [categoriesActive, setCategoriesActive] = useState(0);

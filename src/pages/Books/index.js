@@ -2,8 +2,18 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 import style from "./Books.module.scss";
 import Intro from "./Intro";
+import { useEffect, useState } from "react";
 
 const Books = () => {
+  const [content,setContent]= useState({})
+  useEffect(() => {
+    const params = window.location.pathname.replace("/books/", "");
+    const url = `http://localhost/review-books-api/api/single_read.php/?id=${params}`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setContent(data));
+  }, []);
+
   const handleScroll = () => {
     document
       .getElementsByClassName(clsx(style.content))[0]
@@ -11,123 +21,11 @@ const Books = () => {
   };
   return (
     <div className={clsx(style.wrapper)}>
-      <Intro handleScroll={handleScroll} />
+      <Intro handleScroll={handleScroll} content={content}/>
 
       <div className={clsx(style.content)}>
         <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
-        </p>
-        <p>
-          wusoiufosidfusuf dd d s fs dfsdaf ys9d of89asfsa dfas8 fsa
-          yfs8dyfa9sfyas 9fysa9 f9 fsd9fyas9fys a9dfsa f9asdfysa fsad9fasdfsaf s
-          fas0df sd fsda faf sad f
+          {content.content}
         </p>
       </div>
 

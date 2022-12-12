@@ -1,72 +1,32 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import style from "./BooksList.module.scss";
 
 const BooksLists = () => {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost/review-books-api/api/read.php";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setBooks(data.body));
+  }, []);
+
   return (
     <div className={clsx(style.list)}>
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
-
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
-
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
-
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
-
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
-
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
-
-      <Link to="/books" className={clsx(style.item)}>
-        <img
-          src="https://salt.tikicdn.com/cache/750x750/ts/product/61/18/e2/186ccb6b02386d0bcb3f24203d713a2c.jpg.webp"
-          alt="Anh sach"
-        />
-        <h1>Benh nhan cam lang</h1>
-        <p>The loai : Kinh di</p>
-      </Link>
+      {books.map((x, index) => {
+        return (
+          <Link
+            key={index}
+            to={`/books/${x.id}`}
+            className={clsx(style.item)}
+          >
+            <img src={x.image} alt={x.name} />
+            <h1>{x.name}</h1>
+            <p>{x.category}</p>
+          </Link>
+        );
+      })}
     </div>
   );
 };
