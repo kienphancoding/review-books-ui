@@ -1,6 +1,7 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .item {
@@ -9,46 +10,74 @@
   width: 200px;
   margin: 15px;
   padding: 10px;
+  animation: begin 0.3s;
   cursor: pointer;
   &:hover {
-    animation: spin 0.5s;
+    transform: translateY(-5px);
   }
   img {
     width: 100%;
     user-select: none;
     -webkit-user-select: none;
   }
-  h1,
-  p {
+  h1{
+    --max-lines : 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:var(--max-lines);
     font-size: 20px;
     font-weight: 600;
     color: var(--black);
-    white-space: nowrap;
+    // white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     user-select: none;
     -webkit-user-select: none;
   }
-  p {
-    font-size: 20px;
-    font-weight: 500;
+}
+@keyframes begin {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
   }
 }
 
-@keyframes spin {
+.loading{
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.loading div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid var(--black);
+  border-radius: 50%;
+  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--black) transparent transparent transparent;
+}
+.loading div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.loading div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.loading div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes loading {
   0% {
-    transform: translateY(-5px);
-  }
-  25% {
-    transform: rotateZ(5deg) translateY(-5px);
-  }
-  50% {
-    transform: rotateZ(-5deg) translateY(-5px);
-  }
-  75% {
-    transform: rotateZ(0) translateY(-5px);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
 }

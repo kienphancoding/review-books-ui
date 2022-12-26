@@ -1,32 +1,48 @@
 import clsx from "clsx";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "./BooksList.module.scss";
 
 const BooksLists = () => {
-  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    const url = "http://localhost/review-books-api/api/read.php";
+    setLoading(true);
+    const url = "http://localhost:9990/";
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setBooks(data.body));
+      .then((x) => {
+        setData(x);
+        setLoading(false);
+      })
   }, []);
 
   return (
     <div className={clsx(style.list)}>
-      {books.map((x, index) => {
-        return (
-          <Link
-            key={index}
-            to={`/books/${x.id}`}
-            className={clsx(style.item)}
-          >
-            <img src={x.image} alt={x.name} />
-            <h1>{x.name}</h1>
-            <p>{x.category}</p>
-          </Link>
-        );
-      })}
+      {loading && (
+        <div className={clsx(style.loading)}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
+      {!loading &&
+        data.map((x, index) => {
+          return (
+            <a key={index} href={x.href} className={clsx(style.item)}>
+              <img src={x.img} alt="Anh bia sach" />
+              <h1>
+                {x.title
+                  .replace("Tóm tắt sách ", "")
+                  .replace("[Nghe sách nói] ", "")
+                  .replace("&#8211", "")
+                  .replace("&#038", "")
+                  .replace("&#8230", "")}
+              </h1>
+            </a>
+          );
+        })}
     </div>
   );
 };
