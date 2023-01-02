@@ -8,7 +8,7 @@ const BooksLists = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = "http://localhost:9990/";
+    const url = "https://review-books-crawl-api-php.vercel.app/body";
     fetch(url)
       .then((response) => response.json())
       .then((x) => {
