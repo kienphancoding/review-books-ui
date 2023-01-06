@@ -1,6 +1,7 @@
 # Tính năng
-1 . Show danh sách 
-2 . Loading tip
+- Show danh sách 
+- Fetch API
+- Loading tip
 
 # Github api
 https://github.com/devlincoder/review-books-crawl-api-php
